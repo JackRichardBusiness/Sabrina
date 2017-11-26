@@ -1,5 +1,6 @@
 from firebase import firebase
 while True:
+	database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com/')
 	inputstr = input('>>> ')
 	output = database.get('conversation/', inputstr)
 	if output == None:
