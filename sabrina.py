@@ -1,14 +1,4 @@
 from firebase import firebase
-import os
-database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com/')
-version = int(database.get('houseOS/', 'version'))
-currentVersion = open('/home/pi/houseOSver.txt', 'r+')
-if not int(currentVersion.read()) == version:
-	print('Updating from '+currentVersion+' to '+version+'...')
-	os.system('sudo git clone https://www.github.com/JackRichardBusiness/Sabrina')
-	currentVersion.write(version)
-	currentVersion.close()
-	os.system('python3 Sabrina/sabrina.py')
 while True:
 	inputstr = input('>>> ')
 	output = database.get('conversation/', inputstr)
