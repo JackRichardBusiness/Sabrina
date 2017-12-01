@@ -1,4 +1,5 @@
 from firebase import firebase
+import speech_recognition as sr
 while True:
 	database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com/')
 	inputstr = input('>>> ')
