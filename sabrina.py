@@ -2,15 +2,16 @@ try:
     from firebase import firebase
     import speech_recognition as sr
     import time
-    import wave
     import pygame
     from time import sleep
     print("LOG: Imports successful")
 except:
     print("LOG: Imports installing")
+    os.system('pip3 install pygame')
+    pygame.mixer.music.load("houseOS-preset1c")
+    pygame.mixer.music.play()
     import os
     os.system('pip3 install SpeechRecognition')
-    os.system('pip3 install pygame')
     os.system('sudo apt-get install -y python3-pyaudio')
     print("LOG: Running again...")
     os.system('python3 sabrina.py')
@@ -18,7 +19,6 @@ def callback(recognizer, audio):
     try:
         output = recognizer.recognize_google(audio)
         if output == "hey Sabrina":
-            pygame.init()
             pygame.mixer.music.load("houseOS-preset1a")
             pygame.mixer.music.play()
             sleep(1)
@@ -30,6 +30,7 @@ def callback(recognizer, audio):
             pygame.mixer.music.load("houseOS-preset1c")
             pygame.mixer.music.play()
             sleep(1)
+pygame.mixer.init()
 r = sr.Recognizer()
 m = sr.Microphone()
 
