@@ -19,7 +19,7 @@ def callback(recognizer, audio):
     try:
         output = recognizer.recognize_google(audio)
         if output == "hey Sabrina":
-            pygame.mixer.music.load("houseOS-preset1a")
+            pygame.mixer.music.load("houseOS-preset1a.mp3")
             pygame.mixer.music.play()
             sleep(1)
     except sr.UnknownValueError:
@@ -27,12 +27,14 @@ def callback(recognizer, audio):
     except sr.RequestError as e:
             print("ERROR: "+str(e))
             pygame.init()
-            pygame.mixer.music.load("houseOS-preset1c")
+            pygame.mixer.music.load("houseOS-preset1c.mp3")
             pygame.mixer.music.play()
             sleep(1)
 pygame.mixer.init()
-r = sr.Recognizer()
-m = sr.Microphone()
+pygame.mixer.music.load("houseOS-preset1a.mp3")
+pygame.mixer.music.play()
+##r = sr.Recognizer()
+##m = sr.Microphone()
 
 ##while True:
 ##	database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com/')
