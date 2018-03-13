@@ -1,6 +1,10 @@
 from firebase import firebase
 import os
-database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com')
+try:
+    database = firebase.FirebaseApplication('https://sabrina-415a1.firebaseio.com')
+except:
+    # Creates virtual wifi network
+    os.system("python3 EZSetup/manage.py runserver 0.0.0.0:5555")
 latestRelease = database.get('houseOS/', 'raspBer')
 if os.path.exists("raspVer.txt"):
     currentVersion = open('raspVer.txt', 'r+')
